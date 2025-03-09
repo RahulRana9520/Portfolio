@@ -3,78 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Intro Video</title>
+    <title>Introduction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="Extra/icon.webp" type="image/x-icon">
     <style>
-        body {
-            background-color: #0d0d0d;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            flex-direction: column;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
-        .navbar {
-            position: absolute;
+        
+        body {
+            background-color: black;
+            color: white;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            font-size: 62.5%;
+        }
+        
+        header {
+            margin-top: 20px;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: #1a1a1a;
-            padding: 15px 0;
+            padding: 1rem 9%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        nav a {
+            font-size: 1.2rem;
+            color: white;
+            margin-left: 3rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+        
+        .intro-section {
+            padding: 5rem 9%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             text-align: center;
         }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin: 0 20px;
-            transition: color 0.3s;
+        
+        .intro-box {
+            margin-top: 3rem;
+            background: rgba(34, 34, 34, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid white;
+            max-width: 500px;
+            width: 100%;
         }
-        .navbar a:hover {
-            color: #facc15;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 50px;
-            color: #facc15;
-            text-transform: uppercase;
-        }
-        .video-container {
-            position: relative;
-            width: 60%;
-            max-width: 800px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0px 0px 20px rgba(255, 255, 0, 0.5);
-        }
+        
         video {
-            width: 40%;
-            height: auto;
-            border-radius: 15px;
+            margin-top: 3.5vw;
+            width: 60%;
+            border-radius: 10px;
         }
+
+        h2{
+            color: #b74b4b;
+        }
+        
     </style>
 </head>
 <body>
+    <header>
+        <a href="#" class="logo">Rahul</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="project.html">Projects</a>
+            <a href="intro.html" class="active">Introduction</a>
+            <a href="skill.html">Skills</a>
+            <a href="education.html">Education</a>
+        </nav>
+    </header>
 
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="skill.html">Skills</a>
-        <a href="intro.html">Intro Video</a>
-        <a href="project.html">Project</a>
-        <a href="education.html">Education</a>
-    </div>
-
-    <h1>My Intro Video</h1>
-    
-    <div class="video-container">
-        <video controls>
-            <source src="Extra/intro.mp4" type="video/mp4">
-        </video>
-    </div>
-
+    <section class="intro-section">
+        <div class="intro-box">
+            <h2>My Introduction Video</h2>
+            <video controls>
+                <source src="Extra/intro.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
 </body>
 </html>
