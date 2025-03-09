@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="Extra/icon.webp" type="image/x-icon">
     <title>Portfolio Website</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Rahul</a>
-        <nav>
+        <a href="#" class="logo">Rahul</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="navMenu">
             <a href="index.html" class="active">Home</a>
             <a href="project.html">Projects</a>
-            <a href="intro.html">introduction</a>
+            <a href="intro.html">Introduction</a>
             <a href="skill.html">Skills</a>
             <a href="education.html">Education</a>
         </nav>
@@ -31,13 +37,18 @@
                 </p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/RahulRana9520/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-                <a href="https://github.com/RahulRana9520"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://github.com/student-gehu"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
                 <a href="https://leetcode.com/u/Rahul9520/"><i class="fas fa-laptop-code" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/rahulrana4671/?next=%2F"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             </div>
             <a href="mailto:rahul015january@gmail.com" class="btn">Contact Me</a>
         </div>
     </section>
+    <script>
+        function toggleMenu() {
+            document.getElementById("navMenu").classList.toggle("active");
+        }
+    </script>
     <script src="app.js"></script>
 </body>
 </html>
