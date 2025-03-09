@@ -134,7 +134,7 @@ nav a.active {
     .home-img img {
         position: relative;
         width: 22vw;
-        border-radius: 10%;
+        border-radius: 50%;
         box-shadow: 0 0 25px solid #b74b4b;
         cursor: pointer;
         transition: 0.2s linear;
@@ -214,6 +214,39 @@ nav a.active {
         border-left: 3px solid black;
         right: -8px; /* Added px unit */
         animation: cursor 0.6s infinite;
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color:#b74b4b;
+    }
+    @media (max-width: 768px) {
+        nav {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: black;
+            width: 50%;
+            border-left: 3px solid #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+            border-bottom-left-radius: 10px;
+        }
+        nav.active {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        nav a {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+        }
+        .hamburger {
+            display: block;
+        }
     }
 
     @keyframes cursor {
