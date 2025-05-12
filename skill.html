@@ -15,77 +15,79 @@
             text-decoration: none;
             border: none;
             outline: none;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Arial', sans-serif;
         }
-        
+
         body {
-            background-color: black;
-            color: white;
+            background-color: #121212; /* SAME as Education page */
+            color: #E0E0E0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             overflow-x: hidden;
-            font-size: 62.5%;
+            font-size: 18px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding-top: 80px;
+            line-height: 1.6;
         }
-        
+
         header {
-            margin-top: 20px;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1rem 9%;
-            background-color: transparent;
+            padding: 15px 9%;
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #b74b4b;
-            font-weight: 800;
+            font-weight: bold;
             cursor: pointer;
-            transition: 0.5s ease;
+            transition: transform 0.5s;
         }
-        
+
         .logo:hover {
             transform: scale(1.1);
         }
-        
+
         nav a {
-            font-size: 1.2rem;
-            color: white;
-            margin-left: 3rem;
+            font-size: 1.1rem;
+            color: #E0E0E0;
+            margin-left: 20px;
             font-weight: 500;
-            transition: 0.3s ease;
+            transition: color 0.3s;
             border-bottom: 3px solid transparent;
         }
-        
+
         nav a:hover,
         nav a.active {
             color: #b74b4b;
             border-bottom: 3px solid #b74b4b;
         }
-        
+
         h1 {
             font-size: 3rem;
-            margin-top: 5rem;
             text-align: center;
+            margin-bottom: 30px;
         }
-        
+
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 70px;
-            margin-top: 2rem;
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
         }
-        
+
         .skill {
             background: #1a1a1a;
             padding: 15px 20px;
@@ -96,34 +98,41 @@
             font-size: 1.5rem;
             transition: transform 0.3s;
             cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
         }
+
         .skill:hover {
             transform: scale(1.1);
         }
+
         .skill i {
             color: #b74b4b;
         }
-        
+
         .content-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 60%;
+            width: 90%;
+            max-width: 1000px;
             margin-top: 20px;
             background: #1a1a1a;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
         }
-        
+
         .skill-content {
             text-align: left;
             font-size: 1.2rem;
             width: 50%;
         }
+
         .skill-content strong {
             color: #b74b4b;
             font-size: 1.5rem;
         }
+
         .chart-container {
             width: 30%;
         }
@@ -141,6 +150,8 @@
             <a href="extra.html">Extra</a>
         </nav>
     </header>
+
+    <h1>My Skills</h1>
 
     <div class="skills">
         <div class="skill" onclick="showSkillContent('C', 'C is a general-purpose programming language that is extremely powerful and widely used for system programming.', 90)"><i class="fab fa-cuttlefish"></i> C</div>
@@ -161,31 +172,34 @@
             <canvas id="skillChart"></canvas>
         </div>
     </div>
+
     <script>
+        let chart;
         function showSkillContent(skill, content, completion) {
             const contentDiv = document.getElementById('skill-content');
             const container = document.getElementById('content-container');
             contentDiv.innerHTML = `<strong>${skill}</strong><br>${content}<br><br>Completion: ${completion}%`;
             container.style.display = 'flex';
 
-            // Pie chart logic
             const ctx = document.getElementById('skillChart').getContext('2d');
-            if (window.myChart) {
-                window.myChart.destroy(); // Destroy previous chart instance
+            if (chart) {
+                chart.destroy();
             }
-            window.myChart = new Chart(ctx, {
+            chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Completed', 'Remaining'],
                     datasets: [{
                         data: [completion, 100 - completion],
-                        backgroundColor: [' #b74b4b', '#333'],
-                        hoverBackgroundColor: ['#ffdd44', '#444']
+                        backgroundColor: ['#b74b4b', '#3a3a3a'],
+                        borderWidth: 0
                     }]
                 },
                 options: {
-                    responsive: true,
-                    cutout: '70%'
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false }
+                    }
                 }
             });
         }
