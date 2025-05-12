@@ -16,94 +16,80 @@
             outline: none;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
         body {
             background-color: black;
             color: white;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             overflow-x: hidden;
-            font-size: 62.5%;
         }
-        
+
         header {
-            margin-top: 20px;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1rem 9%;
-            background-color: transparent;
+            padding: 1.5rem 9%;
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             color: #b74b4b;
             font-weight: 800;
             cursor: pointer;
-            transition: 0.5s ease;
+            transition: transform 0.3s ease;
         }
-        
+
         .logo:hover {
             transform: scale(1.1);
         }
-        
+
         nav a {
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             color: white;
-            margin-left: 3rem;
-            font-weight: 500;
-            transition: 0.3s ease;
-            border-bottom: 3px solid transparent;
+            margin-left: 4rem;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
         }
-        
+
         nav a:hover,
         nav a.active {
             color: #b74b4b;
-            border-bottom: 3px solid #b74b4b;
+            border-bottom: 2px solid #b74b4b;
         }
-        
-        @media(max-width: 995px) {
-            nav {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 40%;
-                background-color: black;
-                padding: 1rem;
-                display: none;
-                border-left: 3px solid #b74b4b;
-                border-bottom: 3px solid #b74b4b;
-                border-bottom-left-radius: 2rem;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
+
+        @media (max-width: 768px) {
             nav a {
-                display: block;
-                font-size: 1.8rem;
-                margin: 3rem 0;
-            }
-            
-            nav a:hover,
-            nav a.active {
-                padding: 1rem;
-                border-radius: 0.5rem;
-                border-bottom: 0.5rem solid #b74b4b;
+                margin-left: 2rem;
+                font-size: 1.4rem;
             }
         }
-        
+
+        @media (max-width: 480px) {
+            nav a {
+                margin-left: 1.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Project Section */
         .project-section {
-            padding: 5rem 9%;
-            margin-top: 4rem;
+            padding: 9rem 9% 4rem;
         }
-        
+
         .container {
             max-width: 1000px;
             margin: auto;
@@ -113,7 +99,7 @@
             justify-content: center;
             gap: 2rem;
         }
-        
+
         .project-box {
             font-size: 1rem;
             background: rgba(34, 34, 34, 0.8);
@@ -122,35 +108,45 @@
             border: 1px solid white;
             flex: 1;
             min-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
+        .project-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
         .content {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-        
+
         video {
             width: 100%;
             border-radius: 10px;
             margin-top: 2vw;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
         }
-        
+
         .file-link {
             color: #b74b4b;
             font-size: 1rem;
         }
 
-        h2{
+        h2 {
             color: #b74b4b;
-            font-size: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
-        h3{
+        h3 {
             margin-top: 1.3vw;
+            color: #fff;
         }
 
-        .ppt-box{
+        .ppt-box {
             margin-top: 3vw;
         }
     </style>
@@ -181,10 +177,12 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-box">
                 <h2>Chatbot for Graphic Era University</h2>
-                <p>AI-powered chatbot for GraphicEra University that enhances communication between students and teachers. It allows students to directly access lecture notes and study materials uploaded by teachers, eliminating dependency on class representatives. Built using Node.js, Express, MySQL, and Generative AI, the chatbot can fetch notes based on teacher names and keywords</p>
+                <p>AI-powered chatbot for Graphic Era University that enhances communication between students and teachers. It allows students to directly access lecture notes and study materials uploaded by teachers, eliminating dependency on class representatives. Built using Node.js, Express, MySQL, and Generative AI, the chatbot can fetch notes based on teacher names and keywords.</p>
             </div>
+
             <div class="project-box">
                 <h2>Additional Resources</h2>
                 <div class="content">
